@@ -22,6 +22,7 @@ The API includes endpoints for user authentication and recipe CRUD operations wi
 cuisine categorization.
 
 **Database**
+
 The users collection stores user details, and the recipes collection stores recipe data
 with cuisine type and user ID references.
 
@@ -48,7 +49,7 @@ routes are protected with middleware.
 
 ## **INSTALLATION**
 
-```cmd
+``` cmd
 #frontend folder
 cd frontend
 
@@ -58,7 +59,7 @@ npm install
 #Start development server
 npm run dev
 
-```cmd
+
 #backend folder
 cd backend
 
