@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import API from "../api/api";
 import { useParams, Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import "../index.css"; // keep global CSS
 
 export default function ViewRecipe() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -24,6 +26,14 @@ export default function ViewRecipe() {
 
   return (
     <div className="view-recipe-container">
+        <button 
+          onClick={() => navigate('/dashboard')}
+          className="back-btn"
+        >
+          <span>←</span>
+          Back to Dashboard
+        </button>
+    <div className="view-recipe-card">
       <h2 className="recipe-title">{recipe.title}</h2>
 
       {recipe.image && (
@@ -44,13 +54,8 @@ export default function ViewRecipe() {
       <div className="recipe-section">
         <h3>👩‍🍳 Instructions</h3>
         <p>{recipe.instructions}</p>
-      </div>
-
-      <div className="back-btn-wrapper">
-        <Link to="/dashboard" className="back-btn">
-          ⬅ Back to Dashboard
-        </Link>
-      </div>
+      </div >
+    </div>
     </div>
   );
 }

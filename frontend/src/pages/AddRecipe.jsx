@@ -43,7 +43,6 @@ export default function AddRecipe() {
   return (
     <>
       <div className="add-recipe-container">
-/* Back Button */
         <button 
           onClick={() => navigate('/dashboard')}
           className="back-btn"
@@ -53,7 +52,6 @@ export default function AddRecipe() {
         </button>
 
         <div className="add-recipe-card">
-/* Header Section */
           <div className="add-recipe-header">
             <div className="add-recipe-icon">🍳</div>
             <h2 className="add-recipe-title">Add New Recipe</h2>
@@ -62,7 +60,6 @@ export default function AddRecipe() {
             </p>
           </div>
 
-/* Recipe Form */
           <form onSubmit={handleSubmit} className="add-recipe-form">
             <div className="input-group">
               <input
@@ -115,7 +112,7 @@ export default function AddRecipe() {
 
 
 
-/*  File Upload */
+
             <div className="input-group">
               <div className="file-input-container">
                 <button 
@@ -136,7 +133,6 @@ export default function AddRecipe() {
               </div>
             </div>
 
-/* Image Preview */
             {preview && (
               <div className="image-preview-container">
                 <span className="preview-label">Image Preview:</span>
