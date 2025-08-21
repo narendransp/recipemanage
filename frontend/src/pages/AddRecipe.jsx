@@ -25,20 +25,19 @@ export default function AddRecipe() {
   try {
     const formData = new FormData();
     formData.append('title', title);
-    formData.append('ingredients', JSON.stringify(ingredients.split(',').map(i => i.trim())));
     formData.append('instructions', instructions);
-    formData.append("tags",JSON.stringify(tags.split(",").map((t) => t.trim())));
-
+    formData.append('ingredients', JSON.stringify(ingredients.split(',').map(i => i.trim())));
+    formData.append('tags', JSON.stringify(tags.split(',').map(t => t.trim())));
     if (image) formData.append('image', image);
 
-    await API.post('/recipes', formData); 
-
+    await API.post('/recipes', formData);
     navigate('/dashboard');
   } catch (err) {
     console.error(err);
     alert('Error adding recipe');
   }
 };
+
 
   return (
     <>

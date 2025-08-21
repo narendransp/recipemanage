@@ -34,12 +34,6 @@ export default function AuthPage() {
     <>
 
       <div className="auth-container">
-        {/* Floating Background Shapes */}
-        <div className="floating-shapes">
-          <div className="floating-shape"></div>
-          <div className="floating-shape"></div>
-          <div className="floating-shape"></div>
-        </div>
 
         <div className="auth-card">
           {/* Decorative Icon */}

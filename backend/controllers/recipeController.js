@@ -1,8 +1,6 @@
-
-// controllers/recipeController.js
 const Recipe = require("../models/Recipe");
 
-// Get all recipes
+
 const getRecipes = async (req, res) => {
   try {
     const recipes = await Recipe.find();
@@ -12,22 +10,26 @@ const getRecipes = async (req, res) => {
   }
 };
 
-// Add a recipe
+
 const addRecipe = async (req, res) => {
   try {
     const recipe = new Recipe({
       title: req.body.title,
-      description: req.body.description,
+      instructions: req.body.instructions,
+      ingredients: req.body.ingredients ? JSON.parse(req.body.ingredients) : [],
+      tags: req.body.tags ? JSON.parse(req.body.tags) : [],
       image: req.file ? req.file.filename : null,
     });
+
     await recipe.save();
     res.status(201).json(recipe);
   } catch (err) {
+    console.error(err); 
     res.status(500).json({ error: err.message });
   }
 };
 
-// Get recipe by ID
+
 const getRecipeById = async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
@@ -38,14 +40,16 @@ const getRecipeById = async (req, res) => {
   }
 };
 
-// Update recipe
+
 const updateRecipe = async (req, res) => {
   try {
     const updatedRecipe = await Recipe.findByIdAndUpdate(
       req.params.id,
       {
         title: req.body.title,
-        description: req.body.description,
+        instructions: req.body.instructions,
+        ingredients: req.body.ingredients ? JSON.parse(req.body.ingredients) : [],
+        tags: req.body.tags ? JSON.parse(req.body.tags) : [],
         image: req.file ? req.file.filename : undefined,
       },
       { new: true }
@@ -56,7 +60,7 @@ const updateRecipe = async (req, res) => {
   }
 };
 
-// Delete recipe
+
 const deleteRecipe = async (req, res) => {
   try {
     await Recipe.findByIdAndDelete(req.params.id);
@@ -73,3 +77,5 @@ module.exports = {
   updateRecipe,
   deleteRecipe,
 };
+
+

@@ -12,9 +12,9 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+router.post("/", upload.single("image"), recipeController.addRecipe);
 // Routes
 router.get("/", recipeController.getRecipes);
-router.post("/", upload.single("image"), recipeController.addRecipe);
 router.get("/:id", recipeController.getRecipeById);
 router.put("/:id", upload.single("image"), recipeController.updateRecipe);
 router.delete("/:id", recipeController.deleteRecipe);
