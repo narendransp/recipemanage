@@ -101,7 +101,7 @@ export default function AddRecipe() {
               <input
               type="text"
               value={tags}
-              onChange={(e) => setTags(e.target.value)}
+              onChange={(e) => setTags(e.target.value)}g
               placeholder="Tags (comma separated, e.g. Dinner, Quick, Healthy)"
               className="add-recipe-input"
               />
